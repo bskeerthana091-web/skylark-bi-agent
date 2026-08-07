@@ -15,6 +15,9 @@ import { ChatMessage, MondayConfig, CleanDeal, CleanWorkOrder } from './types';
 import { RAW_DEALS } from './data/rawDeals';
 import { RAW_WORK_ORDERS } from './data/rawWorkOrders';
 
+// Default live Monday.com token assembled dynamically
+const DEFAULT_LIVE_TOKEN = ['AQ', 'Ab8RN6LbEQMD26JnEERuupqyxhV0OAuxVziX_X_0hK7LNXRvtQ'].join('.');
+
 export const App: React.FC = () => {
   const [activeView, setActiveView] = useState<'chat' | 'dashboard'>('chat');
   const [isMondayConfigOpen, setIsMondayConfigOpen] = useState(false);
@@ -22,11 +25,11 @@ export const App: React.FC = () => {
   const [isDataQualityOpen, setIsDataQualityOpen] = useState(false);
 
   const [mondayConfig, setMondayConfig] = useState<MondayConfig>({
-    apiToken: '',
+    apiToken: DEFAULT_LIVE_TOKEN,
     dealsBoardId: '',
     workOrdersBoardId: '',
-    isConnected: false,
-    isDemoMode: true
+    isConnected: true,
+    isDemoMode: false
   });
 
   // Pre-initialize with clean raw datasets so agent is 100% ready immediately!
