@@ -55,7 +55,7 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
   ];
 
   return (
-    <div className="flex-1 overflow-y-auto p-3 md:p-6 space-y-6 w-full max-w-full h-full touch-pan-y font-sans">
+    <div className="w-full max-w-full space-y-4 md:space-y-6 p-2 md:p-4 font-sans">
       {/* Metrics Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
         <div className="floating-window p-4">
@@ -214,7 +214,7 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
             <span className="text-[10px] md:text-[11px] text-brand-400">Swipe to inspect all records</span>
           </div>
 
-          <div className="max-h-[500px] overflow-x-auto overflow-y-auto custom-scrollbar touch-pan-x touch-pan-y">
+          <div className="overflow-x-auto custom-scrollbar">
             <table className="w-full text-xs text-left relative border-collapse min-w-[600px]">
               <thead className="bg-gray-900/95 text-gray-300 font-semibold border-b border-gray-800 sticky top-0 backdrop-blur-md z-10">
                 <tr>
@@ -263,7 +263,7 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
             <span className="text-[10px] md:text-[11px] text-brand-400">Swipe to inspect all records</span>
           </div>
 
-          <div className="max-h-[500px] overflow-x-auto overflow-y-auto custom-scrollbar touch-pan-x touch-pan-y">
+          <div className="overflow-x-auto custom-scrollbar">
             <table className="w-full text-xs text-left relative border-collapse min-w-[650px]">
               <thead className="bg-gray-900/95 text-gray-300 font-semibold border-b border-gray-800 sticky top-0 backdrop-blur-md z-10">
                 <tr>
