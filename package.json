@@ -7,12 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "codex": "node_modules/@openai/codex/vendor/x86_64-pc-windows-msvc/bin/codex.exe"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@openai/codex": "^0.147.0",
-    "@openai/codex-win32-x64": "npm:@openai/codex@0.147.0-win32-x64",
     "clsx": "^2.1.1",
     "lucide-react": "^0.469.0",
     "react": "^18.3.1",
