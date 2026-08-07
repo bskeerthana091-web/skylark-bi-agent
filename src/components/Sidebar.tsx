@@ -57,7 +57,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   ];
 
   return (
-    <aside className="hidden lg:flex flex-col w-72 shrink-0 p-3 space-y-4 font-sans">
+    <aside className="flex flex-col w-72 shrink-0 p-3 space-y-4 font-sans">
       {/* Floating Window Widget: Executive Query Shortcuts */}
       <div className="floating-window p-4 space-y-3 flex-1 flex flex-col justify-between">
         <div className="space-y-3">
