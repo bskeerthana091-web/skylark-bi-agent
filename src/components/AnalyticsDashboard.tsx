@@ -55,9 +55,9 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
   ];
 
   return (
-    <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
+    <div className="flex-1 overflow-y-auto p-3 md:p-6 space-y-6 w-full max-w-full h-full touch-pan-y font-sans">
       {/* Metrics Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
         <div className="floating-window p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-semibold text-gray-400">Closed Won Revenue</span>
@@ -65,7 +65,7 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
               <DollarSign className="w-4 h-4" />
             </div>
           </div>
-          <span className="text-2xl font-extrabold text-white">₹{(wonValue / 10000000).toFixed(2)} Cr</span>
+          <span className="text-xl md:text-2xl font-extrabold text-white">₹{(wonValue / 10000000).toFixed(2)} Cr</span>
           <span className="text-[11px] text-emerald-400 block mt-1">{wonDeals.length} won contracts</span>
         </div>
 
@@ -76,7 +76,7 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
               <TrendingUp className="w-4 h-4" />
             </div>
           </div>
-          <span className="text-2xl font-extrabold text-white">₹{(openValue / 10000000).toFixed(2)} Cr</span>
+          <span className="text-xl md:text-2xl font-extrabold text-white">₹{(openValue / 10000000).toFixed(2)} Cr</span>
           <span className="text-[11px] text-brand-400 block mt-1">{openDeals.length} open opportunities</span>
         </div>
 
@@ -87,7 +87,7 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
               <AlertCircle className="w-4 h-4" />
             </div>
           </div>
-          <span className="text-2xl font-extrabold text-white">₹{(totalUnbilled / 10000000).toFixed(2)} Cr</span>
+          <span className="text-xl md:text-2xl font-extrabold text-white">₹{(totalUnbilled / 10000000).toFixed(2)} Cr</span>
           <span className="text-[11px] text-amber-400 block mt-1">Pending invoice issuance</span>
         </div>
 
@@ -98,17 +98,17 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
               <Layers className="w-4 h-4" />
             </div>
           </div>
-          <span className="text-2xl font-extrabold text-white">₹{(totalReceivable / 10000000).toFixed(2)} Cr</span>
+          <span className="text-xl md:text-2xl font-extrabold text-white">₹{(totalReceivable / 10000000).toFixed(2)} Cr</span>
           <span className="text-[11px] text-purple-400 block mt-1">Outstanding collections</span>
         </div>
       </div>
 
       {/* Tabs & Search Header */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-gray-800 pb-3">
-        <div className="flex gap-2">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-b border-gray-800 pb-3">
+        <div className="flex flex-wrap gap-1.5">
           <button
             onClick={() => setActiveTab('overview')}
-            className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+            className={`flex-1 sm:flex-none px-3 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
               activeTab === 'overview' ? 'bg-gradient-to-r from-brand-600 to-indigo-600 text-white shadow-md' : 'text-gray-400 hover:text-white bg-gray-900/80 border border-gray-800'
             }`}
           >
@@ -116,7 +116,7 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
           </button>
           <button
             onClick={() => setActiveTab('deals')}
-            className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+            className={`flex-1 sm:flex-none px-3 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
               activeTab === 'deals' ? 'bg-gradient-to-r from-brand-600 to-indigo-600 text-white shadow-md' : 'text-gray-400 hover:text-white bg-gray-900/80 border border-gray-800'
             }`}
           >
@@ -124,7 +124,7 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
           </button>
           <button
             onClick={() => setActiveTab('workOrders')}
-            className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+            className={`flex-1 sm:flex-none px-3 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
               activeTab === 'workOrders' ? 'bg-gradient-to-r from-brand-600 to-indigo-600 text-white shadow-md' : 'text-gray-400 hover:text-white bg-gray-900/80 border border-gray-800'
             }`}
           >
@@ -149,13 +149,13 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
       {/* TAB CONTENT: Overview */}
       {activeTab === 'overview' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="floating-window p-5 space-y-3">
-            <h4 className="text-sm font-bold text-white">Sector Revenue Distribution (₹ Lakhs)</h4>
-            <div className="h-64 w-full">
+          <div className="floating-window p-4 md:p-5 space-y-3">
+            <h4 className="text-xs md:text-sm font-bold text-white">Sector Revenue Distribution (₹ Lakhs)</h4>
+            <div className="h-60 md:h-64 w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={sectorData} margin={{ top: 10, right: 10, left: 10, bottom: 20 }}>
-                  <XAxis dataKey="name" stroke="#9CA3AF" fontSize={11} />
-                  <YAxis stroke="#9CA3AF" fontSize={11} />
+                  <XAxis dataKey="name" stroke="#9CA3AF" fontSize={10} />
+                  <YAxis stroke="#9CA3AF" fontSize={10} />
                   <Tooltip contentStyle={{ backgroundColor: '#0F172A', borderColor: '#334155', borderRadius: '8px', color: '#FFF' }} />
                   <Bar dataKey="value" fill="#3B82F6" radius={[6, 6, 0, 0]} />
                 </BarChart>
@@ -163,10 +163,10 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
             </div>
           </div>
 
-          <div className="floating-window p-5 space-y-3">
-            <h4 className="text-sm font-bold text-white">Work Order Execution Status</h4>
-            <div className="h-64 w-full flex flex-col items-center justify-between">
-              <div className="h-48 w-full">
+          <div className="floating-window p-4 md:p-5 space-y-3">
+            <h4 className="text-xs md:text-sm font-bold text-white">Work Order Execution Status</h4>
+            <div className="h-60 md:h-64 w-full flex flex-col items-center justify-between">
+              <div className="h-44 md:h-48 w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
@@ -175,8 +175,8 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
                       nameKey="name"
                       cx="50%"
                       cy="50%"
-                      innerRadius={40}
-                      outerRadius={75}
+                      innerRadius={35}
+                      outerRadius={70}
                       paddingAngle={4}
                     >
                       {pieChartData.map((entry, index) => (
@@ -192,12 +192,12 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
               </div>
 
               {/* High-Contrast Badges */}
-              <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+              <div className="flex flex-wrap items-center justify-center gap-1.5 pt-2">
                 {pieChartData.map((item, i) => (
-                  <div key={i} className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-gray-900 border border-gray-800 shadow-sm">
-                    <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: item.color }}></span>
-                    <span className="text-xs font-bold text-gray-200">{item.name}:</span>
-                    <span className="text-xs font-extrabold" style={{ color: item.color }}>{item.value}</span>
+                  <div key={i} className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-xl bg-gray-900 border border-gray-800 shadow-sm">
+                    <span className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }}></span>
+                    <span className="text-[10px] md:text-xs font-bold text-gray-200">{item.name}:</span>
+                    <span className="text-[10px] md:text-xs font-extrabold" style={{ color: item.color }}>{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -208,31 +208,31 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
 
       {/* TAB CONTENT: Deals Table */}
       {activeTab === 'deals' && (
-        <div className="floating-window flex flex-col">
+        <div className="floating-window flex flex-col w-full max-w-full overflow-hidden">
           <div className="p-3 border-b border-gray-800 bg-gray-950/60 flex items-center justify-between text-xs text-gray-400 font-mono">
             <span>Showing all {filteredDeals.length} records</span>
-            <span className="text-[11px] text-brand-400">Scroll table down/right to inspect all deals</span>
+            <span className="text-[10px] md:text-[11px] text-brand-400">Swipe to inspect all records</span>
           </div>
 
-          <div className="max-h-[340px] overflow-x-auto overflow-y-auto custom-scrollbar">
-            <table className="w-full text-xs text-left relative border-collapse">
+          <div className="max-h-[500px] overflow-x-auto overflow-y-auto custom-scrollbar touch-pan-x touch-pan-y">
+            <table className="w-full text-xs text-left relative border-collapse min-w-[600px]">
               <thead className="bg-gray-900/95 text-gray-300 font-semibold border-b border-gray-800 sticky top-0 backdrop-blur-md z-10">
                 <tr>
-                  <th className="px-4 py-3 bg-gray-900/95">Deal Name</th>
-                  <th className="px-4 py-3 bg-gray-900/95">Client Code</th>
-                  <th className="px-4 py-3 bg-gray-900/95">Status</th>
-                  <th className="px-4 py-3 bg-gray-900/95">Sector</th>
-                  <th className="px-4 py-3 bg-gray-900/95">Stage</th>
-                  <th className="px-4 py-3 bg-gray-900/95 text-right">Deal Value (₹)</th>
+                  <th className="px-3.5 py-2.5 bg-gray-900/95">Deal Name</th>
+                  <th className="px-3.5 py-2.5 bg-gray-900/95">Client Code</th>
+                  <th className="px-3.5 py-2.5 bg-gray-900/95">Status</th>
+                  <th className="px-3.5 py-2.5 bg-gray-900/95">Sector</th>
+                  <th className="px-3.5 py-2.5 bg-gray-900/95">Stage</th>
+                  <th className="px-3.5 py-2.5 bg-gray-900/95 text-right">Deal Value (₹)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-800/60 font-mono">
                 {filteredDeals.map((d) => (
                   <tr key={d.id} className="hover:bg-brand-500/10 even:bg-gray-900/40 odd:bg-gray-950/40 transition-colors">
-                    <td className="px-4 py-2.5 font-bold text-white whitespace-nowrap">{d.dealName}</td>
-                    <td className="px-4 py-2.5 text-gray-400 whitespace-nowrap">{d.clientCode}</td>
-                    <td className="px-4 py-2.5 whitespace-nowrap">
-                      <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase inline-flex items-center gap-1.5 ${
+                    <td className="px-3.5 py-2 font-bold text-white whitespace-nowrap">{d.dealName}</td>
+                    <td className="px-3.5 py-2 text-gray-400 whitespace-nowrap">{d.clientCode}</td>
+                    <td className="px-3.5 py-2 whitespace-nowrap">
+                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase inline-flex items-center gap-1 ${
                         d.status === 'Won' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' :
                         d.status === 'Open' ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20' : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
                       }`}>
@@ -242,9 +242,9 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
                         <span>{d.status}</span>
                       </span>
                     </td>
-                    <td className="px-4 py-2.5 text-gray-300 whitespace-nowrap">{d.sector}</td>
-                    <td className="px-4 py-2.5 text-gray-400 whitespace-nowrap">{d.dealStage}</td>
-                    <td className="px-4 py-2.5 text-right font-bold text-emerald-400 whitespace-nowrap">
+                    <td className="px-3.5 py-2 text-gray-300 whitespace-nowrap">{d.sector}</td>
+                    <td className="px-3.5 py-2 text-gray-400 whitespace-nowrap">{d.dealStage}</td>
+                    <td className="px-3.5 py-2 text-right font-bold text-emerald-400 whitespace-nowrap">
                       ₹{d.dealValue.toLocaleString('en-IN')}
                     </td>
                   </tr>
@@ -257,31 +257,31 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
 
       {/* TAB CONTENT: Work Orders Table */}
       {activeTab === 'workOrders' && (
-        <div className="floating-window flex flex-col">
+        <div className="floating-window flex flex-col w-full max-w-full overflow-hidden">
           <div className="p-3 border-b border-gray-800 bg-gray-950/60 flex items-center justify-between text-xs text-gray-400 font-mono">
             <span>Showing all {filteredWorkOrders.length} work order records</span>
-            <span className="text-[11px] text-brand-400">Scroll table down/right to inspect all records</span>
+            <span className="text-[10px] md:text-[11px] text-brand-400">Swipe to inspect all records</span>
           </div>
 
-          <div className="max-h-[340px] overflow-x-auto overflow-y-auto custom-scrollbar">
-            <table className="w-full text-xs text-left relative border-collapse">
+          <div className="max-h-[500px] overflow-x-auto overflow-y-auto custom-scrollbar touch-pan-x touch-pan-y">
+            <table className="w-full text-xs text-left relative border-collapse min-w-[650px]">
               <thead className="bg-gray-900/95 text-gray-300 font-semibold border-b border-gray-800 sticky top-0 backdrop-blur-md z-10">
                 <tr>
-                  <th className="px-4 py-3 bg-gray-900/95">WO Serial</th>
-                  <th className="px-4 py-3 bg-gray-900/95">Deal Name</th>
-                  <th className="px-4 py-3 bg-gray-900/95">Execution Status</th>
-                  <th className="px-4 py-3 bg-gray-900/95">Sector</th>
-                  <th className="px-4 py-3 bg-gray-900/95 text-right">Unbilled Amount (₹)</th>
-                  <th className="px-4 py-3 bg-gray-900/95 text-right">Receivable (₹)</th>
+                  <th className="px-3.5 py-2.5 bg-gray-900/95">WO Serial</th>
+                  <th className="px-3.5 py-2.5 bg-gray-900/95">Deal Name</th>
+                  <th className="px-3.5 py-2.5 bg-gray-900/95">Execution Status</th>
+                  <th className="px-3.5 py-2.5 bg-gray-900/95">Sector</th>
+                  <th className="px-3.5 py-2.5 bg-gray-900/95 text-right">Unbilled Amount (₹)</th>
+                  <th className="px-3.5 py-2.5 bg-gray-900/95 text-right">Receivable (₹)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-800/60 font-mono">
                 {filteredWorkOrders.map((w) => (
                   <tr key={w.id} className="hover:bg-brand-500/10 even:bg-gray-900/40 odd:bg-gray-950/40 transition-colors">
-                    <td className="px-4 py-2.5 font-bold text-brand-400 whitespace-nowrap">{w.serialNo}</td>
-                    <td className="px-4 py-2.5 font-bold text-white whitespace-nowrap">{w.dealName}</td>
-                    <td className="px-4 py-2.5 whitespace-nowrap">
-                      <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase inline-flex items-center gap-1.5 ${
+                    <td className="px-3.5 py-2 font-bold text-brand-400 whitespace-nowrap">{w.serialNo}</td>
+                    <td className="px-3.5 py-2 font-bold text-white whitespace-nowrap">{w.dealName}</td>
+                    <td className="px-3.5 py-2 whitespace-nowrap">
+                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase inline-flex items-center gap-1 ${
                         w.executionStatus === 'Completed' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' :
                         w.executionStatus === 'Ongoing' ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20' :
                         w.executionStatus === 'Pause / struck' ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20' :
@@ -295,11 +295,11 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ deals, w
                         <span>{w.executionStatus}</span>
                       </span>
                     </td>
-                    <td className="px-4 py-2.5 text-gray-300 whitespace-nowrap">{w.sector}</td>
-                    <td className="px-4 py-2.5 text-right font-bold text-amber-400 whitespace-nowrap">
+                    <td className="px-3.5 py-2 text-gray-300 whitespace-nowrap">{w.sector}</td>
+                    <td className="px-3.5 py-2 text-right font-bold text-amber-400 whitespace-nowrap">
                       ₹{w.amountToBeBilledExclGst.toLocaleString('en-IN')}
                     </td>
-                    <td className="px-4 py-2.5 text-right font-bold text-purple-400 whitespace-nowrap">
+                    <td className="px-3.5 py-2 text-right font-bold text-purple-400 whitespace-nowrap">
                       ₹{w.amountReceivable.toLocaleString('en-IN')}
                     </td>
                   </tr>

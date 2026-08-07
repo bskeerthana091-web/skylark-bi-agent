@@ -152,7 +152,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Floating Workspace Canvas */}
-      <div className="flex flex-1 max-w-7xl w-full mx-auto px-3 pb-3 min-h-0 overflow-y-auto">
+      <div className="flex flex-1 max-w-7xl w-full mx-auto px-2 md:px-3 pb-3 min-h-0 overflow-y-auto touch-pan-y custom-scrollbar">
         <Sidebar
           onSelectPrompt={handleSendMessage}
           audit={dataAudit}
