@@ -78,11 +78,11 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
   };
 
   return (
-    <div className="flex-1 p-1 md:p-3 flex flex-col h-[calc(100vh-5.5rem)] w-full max-w-full overflow-hidden">
+    <div className="flex-1 p-1 md:p-3 flex flex-col h-[calc(100vh-5rem)] w-full max-w-full overflow-hidden">
       {/* Floating AI Window Frame */}
-      <div className="floating-window flex-1 flex flex-col overflow-hidden relative w-full">
+      <div className="floating-window flex-1 flex flex-col overflow-hidden relative w-full h-full">
         {/* Floating Window Title Bar */}
-        <div className="window-titlebar px-3 py-2.5 md:px-4 md:py-3 flex items-center justify-between">
+        <div className="window-titlebar px-3 py-2.5 md:px-4 md:py-3 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2 md:gap-2.5">
             <div className="w-6 h-6 md:w-7 md:h-7 rounded-lg bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center shadow-md shrink-0">
               <Bot className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
@@ -323,7 +323,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
         </div>
 
         {/* Input Bar */}
-        <div className="p-2.5 md:p-4 border-t border-gray-800/80 bg-gray-950/80 backdrop-blur-md">
+        <div className="p-2.5 md:p-4 border-t border-gray-800/80 bg-gray-950/80 backdrop-blur-md shrink-0">
           <form onSubmit={handleSubmit} className="max-w-4xl mx-auto flex gap-2">
             <input
               type="text"
